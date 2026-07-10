@@ -9,7 +9,7 @@ import Footer from '../components/Footer.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 
 const projects = (await getCollection('projects')).sort(
-  (a, b) => a.data.order - b.data.order
+  (a: any, b: any) => a.data.order - b.data.order
 ) as CollectionEntry<'projects'>[];
 ---
 <Layout title="Daniel — Full-Stack Developer">
