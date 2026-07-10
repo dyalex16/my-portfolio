@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project: any) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+<Layout title={`${project.data.title} — Daniel`}>
+  <Header />
+  <article class="max-w-3xl mx-auto px-6 py-20">
+    <h1 class="font-display text-4xl font-semibold">{project.data.title}</h1>
+    <p class="mt-4 text-slate-400">{project.data.summary}</p>
+
+    <ul class="mt-4 flex flex-wrap gap-2">
+      {project.data.stack.map((tech: string) => (
+        <li class="text-xs font-mono px-2 py-1 rounded bg-white/5 text-slate-300">{tech}</li>
+      ))}
+    </ul>
+
+    <div class="mt-6 flex gap-4 text-sm">
+      {project.data.liveUrl && (
+        <a href={project.data.liveUrl} class="text-accent-purple hover:underline">Live demo →</a>
+      )}
+      <a href={project.data.repoUrl} class="text-slate-400 hover:text-white transition-colors">Source code</a>
+    </div>
+
+    <div class="prose prose-invert prose-slate mt-10 max-w-none">
+      <Content />
+    </div>
+  </article>
+  <Footer />
+</Layout>

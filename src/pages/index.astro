@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content"
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects')).sort(
+  (a: any, b: any) => a.data.order - b.data.order
+);
+---
+<Layout title="Daniel — Full-Stack Developer">
+  <Header />
+  <Hero />
+
+  <section id="projects" class="max-w-5xl mx-auto px-6 py-20 border-t border-white/5">
+    <h2 class="font-display text-2xl font-semibold mb-8">Projects</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+      {projects.map((project: any) => (
+        <ProjectCard
+          title={project.data.title}
+          summary={project.data.summary}
+          stack={project.data.stack}
+          liveUrl={project.data.liveUrl}
+          repoUrl={project.data.repoUrl}
+          slug={project.slug}
+        />
+      ))}
+    </div>
+  </section>
+
+  <About />
+  <Footer />
+</Layout>
