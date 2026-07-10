@@ -31,6 +31,15 @@ const { title, description = "Full-stack developer portfolio." } = Astro.props;
     outline: 2px solid #a855f7;
     outline-offset: 2px;
   }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+  }
+  .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+  }
   @media (prefers-reduced-motion: reduce) {
     * {
       animation: none !important;
@@ -38,3 +47,25 @@ const { title, description = "Full-stack developer portfolio." } = Astro.props;
     }
   }
 </style>
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target); // animate once
+      }
+    });
+  },
+  {
+    threshold: 0.1
+  }
+);
+
+reveals.forEach(reveal => {
+  observer.observe(reveal);
+});
+
+</script>
