@@ -3,7 +3,7 @@ title: "ShareBook"
 summary: "A C++ OOP console application for a second-hand book marketplace, with a multi-level user hierarchy and SQLite persistence."
 stack: ["C++", "SQLite", "OOP"]
 liveUrl: ""
-repoUrl: "https://github.com/your-username/sharebook"
+repoUrl: "https://github.com/dyalex16/sharebook"
 image: "/projects/sharebook-cover.png"
 featured: false
 order: 2
