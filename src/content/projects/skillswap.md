@@ -2,7 +2,7 @@
 title: "SkillSwap"
 summary: "A full-stack skill-exchange platform matching people to teach and learn from each other, using skill overlap and geographic proximity."
 stack: ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Prisma", "Socket.io", "Jitsi Meet"]
-liveUrl: "" # add once deployed
+liveUrl: "https://skillswap-five-nu.vercel.app/" 
 repoUrl: "https://github.com/dyalex16/skillswap"
 image: "/projects/skillswap-cover.png"
 featured: true

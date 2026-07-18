@@ -33,12 +33,12 @@ const { title, description = "Full-stack developer portfolio." } = Astro.props;
   }
   .reveal {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateY(45px);
     transition: all 0.8s ease;
   }
   .reveal.active {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
   }
   @media (prefers-reduced-motion: reduce) {
     * {
