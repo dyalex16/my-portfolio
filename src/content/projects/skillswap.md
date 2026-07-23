@@ -23,12 +23,10 @@ locally and for free.
 - Jitsi Meet integration for in-app video calls without leaving the platform.
 
 ## Challenges
-<!-- Replace with a specific bug or tradeoff you actually hit — this section
-     is what makes the writeup credible rather than a feature list. -->
 - Experienced difficulties with the avatar upload correlation at all visual points.
-- 
+- Numerous attempts to accurately render suggestions based on sender, receiver or declined status. 
 
 ## What I'd Improve Next
-- Automated tests for the matchmaking algorithm
+- AI integrated suggestions for matches and chat starters.
 - Paginate match queries as the user base grows
 - Push notifications for new matches/messages

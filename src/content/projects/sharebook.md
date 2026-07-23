@@ -20,5 +20,5 @@ course project focused on solid object-oriented design.
   for simpler ownership and lookup.
 
 ## Challenges
-<!-- e.g. the linker error you were debugging on MSYS2 UCRT64 — once resolved,
-     write up what caused it and how you fixed it. -->
+- Difficulties incorporating the SQLite
+- Integrating the catalog with the database.
